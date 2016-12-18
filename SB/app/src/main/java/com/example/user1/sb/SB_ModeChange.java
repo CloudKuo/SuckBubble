@@ -27,7 +27,7 @@ public class SB_ModeChange extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(SB_ModeChange.this, SB_MainActivity.class);
                 startActivity(intent);
-                SB_ModeChange.this.finish();
+                //SB_ModeChange.this.finish();
             }
         });
     }

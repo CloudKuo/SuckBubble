@@ -45,6 +45,20 @@ public class SB_MainActivity extends AppCompatActivity {
 
             }
         });
+        //遊戲規則講解的按鍵
+
+
+        change_Btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(SB_MainActivity.this, SB_Change.class);
+                startActivity(intent);
+                SB_MainActivity.this.finish();
+
+            }
+        });
+        //跑到用料區的按鍵
 
 
     }
