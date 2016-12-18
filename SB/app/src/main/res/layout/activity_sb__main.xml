@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sb__main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user1.sb.SB_MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:text="@string/label1"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/StartLabel1"
+            android:background="@color/Label"
+            android:textColor="@android:color/background_light"
+            android:textStyle="normal|bold"
+
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:text="@string/label2"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StartLabel1"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/StartLabel2"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/change_Btn"
+            android:text="換料區"
+            android:layout_width="300px"
+            android:layout_height="100px"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="51dp"
+            android:background="@android:drawable/btn_default"
+            android:textSize="24sp"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="normal|bold"
+            android:shadowColor="@android:color/background_dark"
+            android:shadowRadius="2" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            style="@style/Information"
+            android:layout_alignBottom="@+id/Start_btn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/Start_btn"
+            android:layout_height="200px"
+            style="@style/Start"
+            android:layout_width="200px"
+            android:layout_above="@+id/milkTea"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="48dp" />
+
+        <ImageView
+            android:layout_height="400px"
+            android:layout_width="400px"
+            android:id="@+id/milkTea"
+            android:background="@drawable/milkteapic"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+             />
+
+    </RelativeLayout>
+</LinearLayout>
