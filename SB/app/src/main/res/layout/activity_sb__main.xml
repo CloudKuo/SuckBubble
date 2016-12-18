@@ -56,7 +56,7 @@
             android:shadowRadius="2" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/information_btn"
             android:layout_width="150px"
             android:layout_height="150px"
             style="@style/Information"
