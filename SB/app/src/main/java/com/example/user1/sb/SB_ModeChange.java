@@ -25,7 +25,8 @@ public class SB_ModeChange extends AppCompatActivity {
         Home_Btn = (Button) findViewById(R.id.home);
         information_btn = (Button) findViewById(R.id.information);
         normal_Btn =(Button)findViewById(R.id.normal_Btn);
-
+        limit_Btn =(Button)findViewById(R.id.limit_Btn);
+        random_Btn =(Button)findViewById(R.id.random_Btn);
 
 
 
