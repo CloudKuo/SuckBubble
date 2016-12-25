@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user1.sb.SB_Change">
+
+    <Button
+        android:layout_width="66sp"
+        android:layout_height="58sp"
+        android:id="@+id/home"
+        android:background="@drawable/home"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="用料區"
+            android:textSize="40sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/foodchange"
+            android:gravity="center_horizontal" />
+
+        <ImageButton
+            app:srcCompat="@drawable/pudding"
+            android:id="@+id/pudding"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/foodchange"
+            android:layout_alignParentStart="true"
+            android:layout_height="169sp"
+            android:layout_width="100sp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="169sp"
+            app:srcCompat="@drawable/grassjelly"
+            android:id="@+id/grassjelly"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/foodchange"
+            android:layout_toEndOf="@+id/pudding"
+            android:layout_toRightOf="@+id/pudding" />
+
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="169sp"
+            app:srcCompat="@drawable/coconuts"
+            android:id="@+id/coconuts"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/foodchange"
+            android:layout_toEndOf="@+id/grassjelly"
+            android:layout_toRightOf="@+id/grassjelly" />
+
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="169sp"
+            app:srcCompat="@drawable/bubble"
+            android:id="@+id/bubble"
+            android:layout_below="@+id/foodchange"
+            android:layout_toEndOf="@+id/coconuts"
+            android:scaleType="fitXY"
+            android:layout_toRightOf="@+id/coconuts" />
+
+        <TextView
+            android:text="吸管區"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:id="@+id/straw"
+            android:layout_below="@+id/grassjelly"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true" />
+
+        <ImageButton
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/straw1"
+            android:id="@+id/straw1"
+            android:layout_below="@+id/straw"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/straw2"
+            android:layout_below="@+id/straw"
+            android:layout_toEndOf="@+id/straw1"
+            android:id="@+id/straw2"
+            android:scaleType="fitXY"
+            android:layout_toRightOf="@+id/straw1" />
+
+        <ImageButton
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/straw"
+            android:layout_toEndOf="@+id/straw2"
+            app:srcCompat="@drawable/straw3"
+            android:id="@+id/straw3"
+            android:scaleType="fitXY"
+            android:layout_toRightOf="@+id/straw2" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
