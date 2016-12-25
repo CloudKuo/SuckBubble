@@ -9,11 +9,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
+
     tools:context="com.example.user1.sb.SB_ModeChange">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -26,32 +32,32 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="155dp"
+                android:layout_height="300sp"
                 android:id="@+id/background1"
                 android:background="@drawable/background1"/>
 
 
             <Button
                 android:text="Normal mode"
-                android:layout_width="245dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/button" />
+                android:layout_width="245sp"
+                android:layout_height="80sp"
+                android:id="@+id/normal_Btn" />
 
             <Button
                 android:text="Limit mode"
-                android:layout_width="245dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/button3" />
+                android:layout_width="245sp"
+                android:layout_height="80sp"
+                android:id="@+id/limit_Btn" />
 
             <Button
                 android:text="Random Mode"
-                android:layout_width="245dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/button4" />
+                android:layout_width="245sp"
+                android:layout_height="80sp"
+                android:id="@+id/random_Btn" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300sp"
                 android:id="@+id/background2"
                 android:background="@drawable/background2"/>
 
@@ -70,10 +76,10 @@
             android:layout_width="68dp"
             android:layout_height="63dp"
             android:id="@+id/information"
-            android:layout_alignParentEnd="true"
+
             android:layout_gravity="top|right"
             android:background="@drawable/information"
-            android:layout_alignParentRight="true" />
+             />
 
     </FrameLayout>
 

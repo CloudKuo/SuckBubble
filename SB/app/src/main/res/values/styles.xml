@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowBackground">@color/windowBackground</item>
+        <!--<item name="windowBackground">@color/windowBackground</item>-->
     </style>
     <style name="Start" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
@@ -26,5 +26,7 @@
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
     </style>
+
+
 
 </resources>
