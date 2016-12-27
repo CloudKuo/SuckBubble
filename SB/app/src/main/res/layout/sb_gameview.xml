@@ -26,7 +26,7 @@
         <Button
             android:layout_width="68dp"
             android:layout_height="63dp"
-            android:id="@+id/information"
+            android:id="@+id/information_btn"
             android:layout_alignParentEnd="true"
             android:layout_gravity="top|right"
             android:background="@drawable/information"
@@ -40,11 +40,13 @@
             android:layout_gravity="bottom|right" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="415dp"
             android:id="@+id/imageView"
             android:layout_gravity="bottom|left"
-            android:background="@drawable/bottle"/>
+            android:background="@drawable/bottle"
+            android:paddingLeft="-100dp"
+            android:paddingRight="-100dp"
+            android:layout_height="399dp"
+            android:layout_width="358dp" />
 
     </FrameLayout>
 
