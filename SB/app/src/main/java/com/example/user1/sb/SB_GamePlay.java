@@ -1,6 +1,8 @@
 package com.example.user1.sb;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -20,6 +22,8 @@ public class SB_GamePlay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sb_gameview);
         information_btn =(Button) findViewById(R.id.information_btn);
+        Home_Btn = (Button) findViewById(R.id.home_btn);
+
         information_btn.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -30,5 +34,30 @@ public class SB_GamePlay extends AppCompatActivity {
 
             }
         });
+        Home_Btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(SB_GamePlay.this, SB_MainActivity.class);
+                startActivity(intent);
+                SB_GamePlay.this.finish();
+            }
+        });
+        Pause_Btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //new AlertDialog.Builder(this)
+                        //.setMessage("你要離開目前遊戲嗎?")
+                        //.setCancelable(false)
+                        //.setIcon(R.drawable.spark)
+                        //.setTitle("離開遊戲")
+                      //  .setPositiveButton("確定", this)
+                    //    .setNegativeButton("取消", this)
+                  //      .show();
+
+            }
+        });
+
+
     }
 }
