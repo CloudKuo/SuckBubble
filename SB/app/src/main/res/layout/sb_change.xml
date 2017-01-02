@@ -37,16 +37,6 @@
         <ImageButton
             android:layout_width="100sp"
             android:layout_height="169sp"
-            app:srcCompat="@drawable/grassjelly"
-            android:id="@+id/grassjelly"
-            android:scaleType="fitXY"
-            android:layout_below="@+id/foodchange"
-            android:layout_toEndOf="@+id/pudding"
-            android:layout_toRightOf="@+id/pudding" />
-
-        <ImageButton
-            android:layout_width="100sp"
-            android:layout_height="169sp"
             app:srcCompat="@drawable/coconuts"
             android:id="@+id/coconuts"
             android:scaleType="fitXY"
@@ -104,6 +94,16 @@
             android:id="@+id/straw3"
             android:scaleType="fitXY"
             android:layout_toRightOf="@+id/straw2" />
+
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="169sp"
+            app:srcCompat="@drawable/grassjelly"
+            android:id="@+id/grassjelly"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/foodchange"
+            android:layout_toRightOf="@+id/pudding"
+            android:layout_toEndOf="@+id/pudding" />
 
 
     </RelativeLayout>

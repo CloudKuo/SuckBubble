@@ -74,7 +74,9 @@
             android:layout_marginBottom="48dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:padding="-100dp" />
+            android:paddingBottom="-10dp"
+            android:paddingTop="-10dp"
+            android:paddingLeft="-10dp" />
 
         <ImageView
             android:layout_height="400px"

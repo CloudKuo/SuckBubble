@@ -43,6 +43,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
     private Bitmap bubble;
     private Bitmap straw;
     private Bitmap bubble2;
+
     boolean condition = true , controlcondition =true;
     private Canvas canvas = null;
     private SurfaceHolder surholder;
@@ -56,6 +57,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
     private Bitmap scaledbubble2;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
         timer = new Timer();  //???Timer
         timer.schedule(timeTask , 0, 400);
         setContentView(new drawbubble(this));
+
     }
 
     @Override
@@ -104,7 +107,9 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
     @Override
     public void onClick(DialogInterface dialog , int id){
         if(id == DialogInterface.BUTTON_POSITIVE){
-            Game.this.finish();
+            Intent intent = new Intent();
+            intent.setClass(Game.this, SB_MainActivity.class);
+            startActivity(intent);
 
         }
         else if(id == DialogInterface.BUTTON_NEGATIVE){
@@ -156,10 +161,11 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
             resource = getResources();
             bubble = BitmapFactory.decodeResource(resource,R.drawable.bubble);
             straw = BitmapFactory.decodeResource(resource,R.drawable.gamestraw);
-            bubble2 = BitmapFactory.decodeResource(resource,R.drawable.bottle);
+            bubble2 = BitmapFactory.decodeResource(resource,R.drawable.home);
             scaledbubble = Bitmap.createScaledBitmap(bubble, 100, 100 , true);
             scaledstraw = Bitmap.createScaledBitmap(straw, 500,400,true);
             scaledbubble2 =  Bitmap.createScaledBitmap(bubble2, Game.Window_width/4, 20 , true);
+
             strawX = Game.Window_width/2;
             strawY = Game.Window_height/2;
             Initialbubble();
@@ -174,7 +180,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
             lv.clear();
 
             strawview = new Strawview(scaledstraw);
-            for(int i = 0 ; i < 20 ; i++ ){
+            for(int i = 0 ; i < 30 ; i++ ){
                 bubbleview2 LV = new bubbleview2(scaledbubble, 0 , 0);
                 lv.add(LV);
             }
@@ -226,12 +232,12 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
                     try {
                         Thread.sleep(50);
                         canvas = surholder.lockCanvas();
-                        canvas.drawColor(Color.BLACK);
+                        canvas.drawColor(Color.WHITE);
                         numberstring = Integer.toString(sec);
 
                         Paint mypaint = new Paint();
                         mypaint.setTextSize(45);//設定字體大小
-                        mypaint.setColor(Color.WHITE);//設定字體顏色
+                        mypaint.setColor(Color.BLACK);//設定字體顏色
                         canvas.drawText(numberstring, 0, 40, mypaint);//（顯示文字,顯示位置-X,顯示位置-Y, paint）
 
                         for (bubbleview2 a : lv) {
@@ -351,7 +357,8 @@ class bubbleview implements Runnable{
 class bubbleview2 implements Runnable{
     static boolean condition = true , control = true;
     private int bubbleX , bubbleY;
-    int bubblespeed2 = 5;
+    int bubblespeed2 = 3;
+
     static int bubble_width , bubble_height;
     private Bitmap bubble_bmp = null;
     private int bubbledirection = 0;
@@ -371,8 +378,8 @@ class bubbleview2 implements Runnable{
     public void Initialbmp(){
         bubble_width = bubble_bmp.getWidth();
         bubble_height = bubble_bmp.getHeight();
-        bubbleX = (int) (Math.random() * (Game.Window_width - bubble_width));
-        bubbleY = -(int) (Math.random() * (Game.Window_height - bubble_height))*2;
+        bubbleX = (int) (Math.random()*(Game.Window_width /2));
+        bubbleY = -(int) (Math.random()*(Game.Window_height/2));
     }
 
 
@@ -385,6 +392,7 @@ class bubbleview2 implements Runnable{
     public void bubblePosition(){
         if (bubbledirection == 0){
             // y 值增加
+
             bubbleY +=bubblespeed2;
         }
         touch_rect.set(bubbleX, bubbleY ,bubbleX + bubble_width ,  bubbleY + bubble_height);
@@ -401,8 +409,6 @@ class bubbleview2 implements Runnable{
     public void Touch(int straw_X , int straw_Y ){
         if(touch_rect.contains(straw_X,straw_Y)){
             condition = false;
-
-
         }
     }
 
