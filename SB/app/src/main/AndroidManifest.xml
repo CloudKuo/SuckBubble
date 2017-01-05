@@ -8,7 +8,7 @@
         android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Game">
+        <activity android:name=".SB_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,6 @@
         </activity>
         <activity android:name=".SB_ModeChange" />
         <activity android:name=".SB_GamePlay" />
-        <activity android:name=".SB_MainActivity"/>
 
         <activity android:name=".SB_Change"/>
     </application>

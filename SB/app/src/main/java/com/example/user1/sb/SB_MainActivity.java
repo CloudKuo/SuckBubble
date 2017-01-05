@@ -3,6 +3,7 @@ package com.example.user1.sb;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,8 @@ public class SB_MainActivity extends AppCompatActivity {
     private Button change_Btn,Start_btn;
     private ImageButton information_btn;
     private String informationText ="    遊戲玩法:    \n    在奶茶喝完之前  \n    盡力吸完所有珍珠  \n    按住吸按鍵可以開始吸    \n    移動吸管去吸珍珠";
-
+    public static int Window_width;
+    public static int Window_height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,11 @@ public class SB_MainActivity extends AppCompatActivity {
         Start_btn = (Button) findViewById(R.id.Start_btn);
         information_btn = (ImageButton) findViewById(R.id.information_btn);
         //assign all varibles
+        DisplayMetrics metric = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metric);
+        Window_width  = metric.widthPixels;
+        Window_height = metric.heightPixels;
+        System.out.print("iiii" + Window_width);
 
 
 

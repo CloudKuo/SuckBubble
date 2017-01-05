@@ -1,5 +1,6 @@
 package com.example.user1.sb;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -31,7 +32,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Game extends ActionBarActivity implements DialogInterface.OnClickListener {
+public class Game extends Activity implements DialogInterface.OnClickListener {
     static int Window_width;
     static int Window_height;
     static int sec;
@@ -43,6 +44,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
     private Bitmap bubble;
     private Bitmap straw;
     private Bitmap bubble2;
+    private Bitmap CanvasBackground;
 
     boolean condition = true , controlcondition =true;
     private Canvas canvas = null;
@@ -55,6 +57,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
     private Bitmap scaledbubble;
     private Bitmap scaledstraw;
     private Bitmap scaledbubble2;
+    private Bitmap scaleCanvasBackground;
 
 
 
@@ -65,7 +68,7 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         Window_width  = metric.widthPixels;
         Window_height = metric.heightPixels;
-        timer = new Timer();  //???Timer
+        timer = new Timer();  //Timer
         timer.schedule(timeTask , 0, 400);
         setContentView(new drawbubble(this));
 
@@ -160,11 +163,13 @@ public class Game extends ActionBarActivity implements DialogInterface.OnClickLi
             surholder = getHolder();
             resource = getResources();
             bubble = BitmapFactory.decodeResource(resource,R.drawable.bubble);
-            straw = BitmapFactory.decodeResource(resource,R.drawable.gamestraw);
+            straw = BitmapFactory.decodeResource(resource,R.drawable.plane);
             bubble2 = BitmapFactory.decodeResource(resource,R.drawable.home);
+            CanvasBackground =BitmapFactory.decodeResource(resource,R.drawable.cloud);
             scaledbubble = Bitmap.createScaledBitmap(bubble, 100, 100 , true);
-            scaledstraw = Bitmap.createScaledBitmap(straw, 500,400,true);
+            scaledstraw = Bitmap.createScaledBitmap(straw, 100,100,true);
             scaledbubble2 =  Bitmap.createScaledBitmap(bubble2, Game.Window_width/4, 20 , true);
+            scaleCanvasBackground =Bitmap.createScaledBitmap(CanvasBackground,Game.Window_width,Game.Window_height,true);
 
             strawX = Game.Window_width/2;
             strawY = Game.Window_height/2;

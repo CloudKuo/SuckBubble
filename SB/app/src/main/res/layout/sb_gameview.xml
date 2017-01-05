@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sb_gameview"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user1.sb.SB_GamePlay">
+    tools:context="com.example.user1.sb.Game"
+    android:background="@drawable/cloud">
 
+
+    <com.example.user1.sb.SB_GameView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawbubble"
+        />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -41,38 +48,10 @@
             android:id="@+id/pause"
             android:layout_gravity="top|left"
             android:background="@drawable/pause"
-            android:layout_column="2"
+            android:layout_column="3"
             android:layout_row="1"/>
-
-        <Button
-            android:text="吸！"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/suck"
-            android:background="@android:drawable/presence_online"
-            android:layout_column="5"
-            android:layout_row="1"
-            android:layout_gravity="bottom|right" />
 
 
     </GridLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            app:srcCompat="@drawable/glassbottle"
-            android:id="@+id/imageView"
-            android:layout_width="250dp"
-            android:layout_height="350dp"
-            android:layout_column="2"
-            android:layout_row="5"
-            android:paddingLeft="-50dp"
-            android:paddingRight="-50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="38dp" />
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
