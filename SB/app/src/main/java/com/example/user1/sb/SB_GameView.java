@@ -33,7 +33,7 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
 
     private Resources resource;
     private Bitmap bubble;
-    private Bitmap straw;
+    private Bitmap plane;
     private Bitmap bubble2;
 
 
@@ -42,11 +42,11 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
     private SurfaceHolder surholder;
     public   Thread bubble_thread;
     private ArrayList<gamebubbleview2> lv;
-    private int strawX  , strawY;
+    private int planeX  , planeY;
     String numberstring;
-    private GameStrawview strawview;
+    private GameStrawview planeview;
     private Bitmap scaledbubble;
-    private Bitmap scaledstraw;
+    private Bitmap scaledplane;
     private Bitmap scaledbubble2;
 
     private TimerTask timeTask = new TimerTask()
@@ -71,15 +71,15 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
         surholder = getHolder();
         resource = getResources();
         bubble = BitmapFactory.decodeResource(resource,R.drawable.bubble);
-        straw = BitmapFactory.decodeResource(resource,R.drawable.plane);
+        plane = BitmapFactory.decodeResource(resource,R.drawable.plane);
         //bubble2 = BitmapFactory.decodeResource(resource,R.drawable.home);
 
-        scaledbubble = Bitmap.createScaledBitmap(bubble, 100, 100 , true);
-        scaledstraw = Bitmap.createScaledBitmap(straw, 100,100,true);
+        scaledbubble = Bitmap.createScaledBitmap(bubble, 75, 75 , true);
+        scaledplane = Bitmap.createScaledBitmap(plane, 100,100,true);
         //scaledbubble2 =  Bitmap.createScaledBitmap(bubble2, SB_GamePlay.Window_width/4, 20 , true);
 
-        strawX = SB_MainActivity.Window_width/2;
-        strawY = SB_MainActivity.Window_height/2;
+        planeX = SB_MainActivity.Window_width/2;
+        planeY = SB_MainActivity.Window_height/2;
         Initialbubble();
         setFocusable(true);
         bubble_thread = new Thread(this);
@@ -93,7 +93,7 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
         lv = new ArrayList<gamebubbleview2>();
         lv.clear();
 
-        strawview = new GameStrawview(scaledstraw);
+        planeview = new GameStrawview(scaledplane);
         for(int i = 0 ; i < 30 ; i++ ){
             gamebubbleview2 LV = new gamebubbleview2(scaledbubble, 0 , 0);
             lv.add(LV);
@@ -103,19 +103,19 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
     @Override
     public boolean onTouchEvent(MotionEvent event){
         if(event.getAction() == MotionEvent.ACTION_MOVE){
-            strawX = (int)event.getX();
-            strawY = (int)event.getY();
-            if(strawX <= 0 +  strawview.bubble_width / 2  ){
-                strawX = 0 +  strawview.bubble_width / 2;
+            planeX = (int)event.getX();
+            planeY = (int)event.getY();
+            if(planeX <= 0 +  planeview.bubble_width / 2  ){
+                planeX = 0 +  planeview.bubble_width / 2;
             }
-            if(strawX >= SB_MainActivity.Window_width - strawview.bubble_width/2){
-                strawX = SB_MainActivity.Window_width - strawview.bubble_width/2 ;
+            if(planeX >= SB_MainActivity.Window_width - planeview.bubble_width/2){
+                planeX = SB_MainActivity.Window_width - planeview.bubble_width/2 ;
             }
-            if(strawY <= 0 + strawview.bubble_height/2){
-                strawY =0 + strawview.bubble_height/2;
+            if(planeY <= 0 + planeview.bubble_height/2){
+                planeY =0 + planeview.bubble_height/2;
             }
-            if(strawY >=SB_MainActivity.Window_height - strawview.bubble_height/2){
-                strawY =SB_MainActivity.Window_height - strawview.bubble_height/2;
+            if(planeY >=SB_MainActivity.Window_height - planeview.bubble_height/2){
+                planeY =SB_MainActivity.Window_height - planeview.bubble_height/2;
             }
         }
 
@@ -137,6 +137,7 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         // TODO Auto-generated method stub
+        bubble_thread.interrupt();
     }
     int i = 0;
     @Override
@@ -156,16 +157,16 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
 
                     for (gamebubbleview2 a : lv) {
                         a.bubbleCanvas(canvas);
-                        a.Touch(strawX + strawview.bubble_width / 2, strawY);
-                        a.Touch(strawX - strawview.bubble_width / 2, strawY);
-                        a.Touch(strawX, strawY + strawview.bubble_height / 2);
-                        a.Touch(strawX, strawY - strawview.bubble_height / 2);
+                        a.Touch(planeX + planeview.bubble_width / 2, planeY);
+                        a.Touch(planeX - planeview.bubble_width / 2, planeY);
+                        a.Touch(planeX, planeY + planeview.bubble_height / 2);
+                        a.Touch(planeX, planeY - planeview.bubble_height / 2);
                     }
 
 
 
 
-                    strawview.bubbleCanvas2(canvas,strawX - strawview.bubble_width/2,strawY - strawview.bubble_height/2);
+                    planeview.bubbleCanvas2(canvas,planeX - planeview.bubble_width/2,planeY - planeview.bubble_height/2);
 
 
                 } catch (Exception e) {
@@ -220,8 +221,8 @@ class gamebubbleview implements Runnable {
 
     //碰撞判斷
 
-    public void Touch(int straw_X, int straw_Y) {
-        if (touch_rect.contains(straw_X, straw_Y)) {
+    public void Touch(int plane_X, int plane_Y) {
+        if (touch_rect.contains(plane_X, plane_Y)) {
             condition = false;
 
 
@@ -271,10 +272,10 @@ class GameStrawview{
 
     public GameStrawview(Bitmap bmp){
         bubble_bmp = bmp;
-        initialstraw();
+        initialplane();
     }
 
-    public void initialstraw(){
+    public void initialplane(){
         bubble_width = bubble_bmp.getWidth();
         bubble_height = bubble_bmp.getHeight();
     }
@@ -308,8 +309,8 @@ class gamebubbleview2 implements Runnable{
     public void Initialbmp(){
         bubble_width = bubble_bmp.getWidth();
         bubble_height = bubble_bmp.getHeight();
-        bubbleX = (int) (Math.random()*(SB_MainActivity.Window_width /2));
-        bubbleY = -(int) (Math.random()*(SB_MainActivity.Window_height/2));
+        bubbleX = (int) (Math.random()*(SB_MainActivity.Window_width -bubble_width));
+        bubbleY = -(int) (Math.random()*(SB_MainActivity.Window_height-bubble_height));
     }
 
 
@@ -336,8 +337,8 @@ class gamebubbleview2 implements Runnable{
     }
 
     //碰撞判斷
-    public void Touch(int straw_X , int straw_Y ){
-        if(touch_rect.contains(straw_X,straw_Y)){
+    public void Touch(int plane_X , int plane_Y ){
+        if(touch_rect.contains(plane_X,plane_Y)){
             condition = false;
         }
     }

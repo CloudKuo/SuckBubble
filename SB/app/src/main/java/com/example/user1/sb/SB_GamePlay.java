@@ -18,7 +18,7 @@ import android.content.Context;
 
 public class SB_GamePlay extends AppCompatActivity {
     private Button Pause_Btn,Home_Btn,information_btn;
-    private  String informationText ="    遊戲玩法:    \n    在奶茶喝完之前  \n    盡力吸完所有珍珠  \n    按住吸按鍵可以開始吸    \n    移動吸管去吸珍珠";
+    private  String informationText ="    遊戲玩法:    \n 移動飛機 \n 躲避所有珍珠的襲擊 \n 左上角是躲過的時間   ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,7 @@ public class SB_GamePlay extends AppCompatActivity {
                 intent.setClass(SB_GamePlay.this, SB_MainActivity.class);
                 startActivity(intent);
                 SB_GamePlay.this.finish();
+
             }
         });
         Pause_Btn.setOnClickListener(new Button.OnClickListener(){
