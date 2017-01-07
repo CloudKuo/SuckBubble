@@ -66,6 +66,7 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
     }
 
     public SB_GameView(Context context, AttributeSet attrs){
+        //initial all the bitmap and timer
         super(context,attrs);
         getHolder().addCallback(this);
         surholder = getHolder();
@@ -86,7 +87,7 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
         timer = new Timer();  //Timer
         timer.schedule(timeTask , 0, 400);
         setZOrderOnTop(true);
-        getHolder().setFormat(PixelFormat.TRANSLUCENT);
+        getHolder().setFormat(PixelFormat.TRANSLUCENT);//將背景變透明的
     }
     //畫出線的整體架構 , 會重複呼叫
     public  void Initialbubble(){
@@ -94,14 +95,14 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
         lv.clear();
 
         planeview = new GameStrawview(scaledplane);
-        for(int i = 0 ; i < 30 ; i++ ){
+        for(int i = 0 ; i < 30 ; i++ ){//幾顆珍珠
             gamebubbleview2 LV = new gamebubbleview2(scaledbubble, 0 , 0);
             lv.add(LV);
         }
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event){
+    public boolean onTouchEvent(MotionEvent event){//移動飛機的方式
         if(event.getAction() == MotionEvent.ACTION_MOVE){
             planeX = (int)event.getX();
             planeY = (int)event.getY();
@@ -137,21 +138,23 @@ class SB_GameView extends SurfaceView implements SurfaceHolder.Callback , Runnab
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         // TODO Auto-generated method stub
+        condition=false;
         bubble_thread.interrupt();
+        bubble_thread=null;//stop thread
     }
     int i = 0;
     @Override
-    public void run(){
+    public void run(){//bubble碰到plane的thread
         while(condition) {
             if (controlcondition) {
                 try {
                     Thread.sleep(50);
                     canvas = surholder.lockCanvas();
-                    canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                    canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);//將背景變透明
                     numberstring = Integer.toString(sec);
 
                     Paint mypaint = new Paint();
-                    mypaint.setTextSize(45);//設定字體大小
+                    mypaint.setTextSize(50);//設定字體大小
                     mypaint.setColor(Color.BLACK);//設定字體顏色
                     canvas.drawText(numberstring, 0, 40, mypaint);//（顯示文字,顯示位置-X,顯示位置-Y, paint）
 
